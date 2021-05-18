@@ -1,0 +1,32 @@
+{
+  "name": "discord.js-template-project",
+  "version": "1.0.0",
+  "description": "A template for bot development using discord.js",
+  "main": "bot.js",
+  "scripts": {
+    "dev": "nodemon bot.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HyperVS/discord.js-template-project.git"
+  },
+  "keywords": [
+    "discord.js",
+    "bot",
+    "template"
+  ],
+  "author": "HyperVS",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HyperVS/discord.js-template-project/issues"
+  },
+  "homepage": "https://github.com/HyperVS/discord.js-template-project#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "dotenv": "^9.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
