@@ -1,5 +1,7 @@
 {
-    "prefix": ".",
-    "color": "RED",
-    "footer": "Template Bot"
+    "prefix": "~",
+    "color": "#2f3136",
+    "footer": "Template Bot",
+    "channel": "820754507469553704",
+    "channelIDs": []
 }
