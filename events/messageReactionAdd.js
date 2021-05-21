@@ -3,10 +3,9 @@ const {channel, channelIDs} = require('../config.json')
 module.exports = {
     once: false,
     async run(reaction, user, client){
-        
         if(user.bot) return;
         if(reaction.message.channel.id != channel) return;
-        let message = reaction.message
+        let message = reaction.message;
         
         // Reactions Emojis
         let custom1 = client.emojis.cache.find(emoji => emoji.name == "bear8");
@@ -37,26 +36,25 @@ module.exports = {
         const region5role = message.guild.roles.cache.find(role => role.name === "ASi");
         const region6role = message.guild.roles.cache.find(role => role.name === "OC");
 
-        let ageMessage = channelIDs.find(obj => obj.name == "age").message;
-        let genderMessage = channelIDs.find(obj => obj.name == "gender").message;
-        let regionMessage = channelIDs.find(obj => obj.name == "region").message;
+        let ageMessageID = channelIDs.find(obj => obj.name == "age").id;
+        let genderMessageID = channelIDs.find(obj => obj.name == "gender").id;
+        let regionMessageID = channelIDs.find(obj => obj.name == "region").id;
         
-        if(!ageMessage) return;
-        if(!genderMessage) return;
-        if(!regionMessage) return;
+        if(!ageMessageID) return;
+        if(!genderMessageID) return;
+        if(!regionMessageID) return;
 
         // Age Reaction Roles
 
-        if(reaction.message == ageMessage){
-
+        if(message.id == ageMessageID){
             switch(reaction.emoji.name){
-                case custom1:
+                case custom1.name:
                     await reaction.message.guild.members.cache.get(user.id).roles.add(age1role);
                     break;
-                case custom2:
+                case custom2.name:
                     await reaction.message.guild.members.cache.get(user.id).roles.add(age2role)
                     break;
-                case custom3:
+                case custom3.name:
                     await reaction.message.guild.members.cache.get(user.id).roles.add(age3role)
                     break;              
               }
@@ -64,25 +62,25 @@ module.exports = {
 
         // Gender Reaction Roles
 
-        if(reaction.message == genderMessage){
+        if(message.id == genderMessageID){
             
             switch(reaction.emoji.name){
-                case custom1:
+                case custom1.name:
                     await reaction.message.guild.members.cache.get(user.id).roles.add(gender1role);
                     break;
-                case custom2:
+                case custom2.name:
                     await reaction.message.guild.members.cache.get(user.id).roles.add(gender2role)
                     break;
-                case custom3:
+                case custom3.name:
                     await reaction.message.guild.members.cache.get(user.id).roles.add(gender3role)
                     break;
-                case custom4:
+                case custom4.name:
                     await reaction.message.guild.members.cache.get(user.id).roles.add(gender4role)
                     break;   
-                case custom5:
+                case custom5.name:
                     await reaction.message.guild.members.cache.get(user.id).roles.add(gender5role)
                     break;
-                case custom6:
+                case custom6.name:
                     await reaction.message.guild.members.cache.get(user.id).roles.add(gender6role)
                     break;                 
               }
@@ -91,25 +89,25 @@ module.exports = {
         
         // Region Reaction Roles
 
-        if(reaction.message == genderMessage){
+        if(message.id == regionMessageID){
             
             switch(reaction.emoji.name){
-                case custom1:
+                case custom1.name:
                     await reaction.message.guild.members.cache.get(user.id).roles.add(region1role);
                     break;
-                case custom2:
+                case custom2.name:
                     await reaction.message.guild.members.cache.get(user.id).roles.add(region2role)
                     break;
-                case custom3:
+                case custom3.name:
                     await reaction.message.guild.members.cache.get(user.id).roles.add(region3role)
                     break;
-                case custom4:
+                case custom4.name:
                     await reaction.message.guild.members.cache.get(user.id).roles.add(region4role)
                     break;   
-                case custom5:
+                case custom5.name:
                     await reaction.message.guild.members.cache.get(user.id).roles.add(region5role)
                     break;
-                case custom6:
+                case custom6.name:
                     await reaction.message.guild.members.cache.get(user.id).roles.add(region6role)
                     break;       
               }

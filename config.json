@@ -3,5 +3,18 @@
     "color": "#2f3136",
     "footer": "Template Bot",
     "channel": "820754507469553704",
-    "channelIDs": []
+    "channelIDs": [
+        {
+            "name": "age",
+            "id": "844483636437844008"
+        },
+        {
+            "name": "gender",
+            "id": "844483644449488896"
+        },
+        {
+            "name": "region",
+            "id": "844483665563877376"
+        }
+    ]
 }
