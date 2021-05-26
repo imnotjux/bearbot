@@ -4,6 +4,15 @@ module.exports = {
     once: false,
     async run(reaction, user, client){
         if(user.bot) return;
+        if (reaction.partial) {
+            try {
+                await reaction.fetch();
+            } catch (error) {
+                console.error('Something went wrong when fetching the message: ', error);
+                return;
+            }
+        }
+
         if(reaction.message.channel.id != channel) return;
         let message = reaction.message;
         
