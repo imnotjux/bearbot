@@ -1,4 +1,4 @@
-const {channel, channelIDs} = require('../config.json')
+const {channel, channelIDs, gamingChannel, gamingIDs} = require('../config.json')
 
 module.exports = {
     once: false,
@@ -12,7 +12,7 @@ module.exports = {
             }
         }
 
-        if(reaction.message.channel.id != channel) return;
+        if(reaction.message.channel.id != channel && reaction.message.channel.id != gamingChannel) return;
         let message = reaction.message;
         
         // Reactions Emojis
@@ -22,6 +22,17 @@ module.exports = {
         let custom4 = client.emojis.cache.find(emoji => emoji.name == "bear5");
         let custom5 = client.emojis.cache.find(emoji => emoji.name == "bear4");
         let custom6 = client.emojis.cache.find(emoji => emoji.name == "bear3");
+        let custom7 = client.emojis.cache.find(emoji => emoji.name == "cat1");
+        let custom8 = client.emojis.cache.find(emoji => emoji.name == "cat2r");
+        let custom9 = client.emojis.cache.find(emoji => emoji.name == "cat3");
+        let custom10 = client.emojis.cache.find(emoji => emoji.name == "cat4");
+        let custom11 = client.emojis.cache.find(emoji => emoji.name == "cat5");
+        let custom12 = client.emojis.cache.find(emoji => emoji.name == "cat6");
+        let custom13 = client.emojis.cache.find(emoji => emoji.name == "cat7");
+        let custom14 = client.emojis.cache.find(emoji => emoji.name == "cat8");
+        let custom15 = client.emojis.cache.find(emoji => emoji.name == "cat9");
+        let custom16 = client.emojis.cache.find(emoji => emoji.name == "cat10");
+        let custom17 = client.emojis.cache.find(emoji => emoji.name == "cat11");
 
         // Age Roles
         const age1role = message.guild.roles.cache.find(role => role.name === "₊﹒13~14");
@@ -44,13 +55,35 @@ module.exports = {
         const region5role = message.guild.roles.cache.find(role => role.name === "ASi");
         const region6role = message.guild.roles.cache.find(role => role.name === "OC");
 
+        // Gaming Roles
+        const valorant = message.guild.roles.cache.find(role => role.name === "valorant");
+        const apex = message.guild.roles.cache.find(role => role.name === "apex");
+        const csgo = message.guild.roles.cache.find(role => role.name === "csgo");
+        const cod = message.guild.roles.cache.find(role => role.name === "cod");
+        const rainbow = message.guild.roles.cache.find(role => role.name === "r6 siege");
+        const minecraft = message.guild.roles.cache.find(role => role.name === "minecraft");
+        const league = message.guild.roles.cache.find(role => role.name === "league of legends");
+        const genshin = message.guild.roles.cache.find(role => role.name === "genshin");
+        const roblox = message.guild.roles.cache.find(role => role.name === "roblox");
+        const osu = message.guild.roles.cache.find(role => role.name === "osu");
+        const rl = message.guild.roles.cache.find(role => role.name === "rocket league");
+        const overwatch = message.guild.roles.cache.find(role => role.name === "overwatch");
+        const rogue = message.guild.roles.cache.find(role => role.name === "rogue company");
+
         let ageMessageID = channelIDs.find(obj => obj.name == "age").id;
         let genderMessageID = channelIDs.find(obj => obj.name == "gender").id;
         let regionMessageID = channelIDs.find(obj => obj.name == "region").id;
+
+        let game1ID = gamingIDs.find(obj => obj.name == "one").id;
+        let game2ID = gamingIDs.find(obj => obj.name == "two").id;
+        let game3ID = gamingIDs.find(obj => obj.name == "three").id;
         
         if(!ageMessageID) return;
         if(!genderMessageID) return;
         if(!regionMessageID) return;
+        if(!game1ID) return;
+        if(!game2ID) return;
+        if(!game3ID) return;
 
         // Age Reaction Roles
 
@@ -119,6 +152,72 @@ module.exports = {
                 case custom6.name:
                     await reaction.message.guild.members.cache.get(user.id).roles.remove(region6role)
                     break;       
+              }
+            
+        }
+
+        // Gaming 1 Roles
+
+        if(message.id == game1ID){
+            
+            switch(reaction.emoji.name){
+                case custom7.name:
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(valorant);
+                    break;
+                case custom8.name:
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(apex);
+                    break;
+                case custom9.name:
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(csgo);
+                    break;
+                case custom10.name:
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(cod);
+                    break;   
+                case custom11.name:
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(rainbow);
+                    break;                
+              }
+            
+        }
+
+        // Gaming 2 Roles
+
+        if(message.id == game2ID){
+            
+            switch(reaction.emoji.name){
+                case custom12.name:
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(minecraft);
+                    break;
+                case custom13.name:
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(league);
+                    break;
+                case custom14.name:
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(genshin);
+                    break;
+                case custom15.name:
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(roblox);
+                    break;                 
+              }
+            
+        }
+
+        // Gaming 3 Roles
+
+        if(message.id == game3ID){
+            
+            switch(reaction.emoji.name){
+                case custom16.name:
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(osu);
+                    break;
+                case custom17.name:
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(rl);
+                    break;
+                case custom7.name:
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(overwatch);
+                    break;
+                case custom8.name:
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(rogue);
+                    break;                 
               }
             
         }

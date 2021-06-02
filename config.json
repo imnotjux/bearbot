@@ -3,6 +3,7 @@
     "color": "#2f3136",
     "footer": "Template Bot",
     "channel": "820754507469553704",
+    "gamingChannel": "830561925938806836",
     "channelIDs": [
         {
             "name": "age",
@@ -15,6 +16,20 @@
         {
             "name": "region",
             "id": "844483665563877376"
+        }
+    ],
+    "gamingIDs": [
+        {
+            "name": "one",
+            "id": "849472140968591450"
+        },
+        {
+            "name": "two",
+            "id": "849472157365043200"
+        },
+        {
+            "name": "three",
+            "id": "849472172334514216"
         }
     ]
 }

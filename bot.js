@@ -6,7 +6,6 @@ const path = require('path');
 
 client.commands = new Discord.Collection();
 
-
 // Command Handler
 fs.readdirSync('./commands').forEach(folder => {
     fs.readdirSync(path.join('commands', folder)).forEach(file => {
@@ -27,3 +26,4 @@ fs.readdirSync('./events/').forEach(file => {
 })
 
 client.login(process.env.BOT_TOKEN);
+
