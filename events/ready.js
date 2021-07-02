@@ -1,5 +1,5 @@
 const connection = require('../db/connection'); // Database connection, omit line if not connecting to a database
-const { channel, channelIDs, gamingIDs, gamingChannel } = require('../config.json');
+const { channel, channelIDs, gamingIDs, gamingChannel, extraChannel, extraMessageID} = require('../config.json');
 
 module.exports = {
     once: true,
@@ -12,6 +12,9 @@ module.exports = {
         for(let id of gamingIDs){
             await client.channels.cache.get(gamingChannel).messages.fetch(id)
         }
+
+    
+        await client.channels.cache.get(extraChannel).messages.fetch(extraMessageID);
         
         if(connection){
             // Add database connection code here
