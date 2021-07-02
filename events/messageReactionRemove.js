@@ -1,4 +1,4 @@
-const {channel, channelIDs, gamingChannel, gamingIDs} = require('../config.json')
+const {channel, channelIDs, gamingChannel, extraChannel, gamingIDs, extraMessageID} = require('../config.json')
 
 module.exports = {
     once: false,
@@ -9,10 +9,11 @@ module.exports = {
                 await reaction.fetch();
             } catch (error) {
                 console.error('Something went wrong when fetching the message: ', error);
+                return;
             }
         }
 
-        if(reaction.message.channel.id != channel && reaction.message.channel.id != gamingChannel) return;
+        if(reaction.message.channel.id != channel && reaction.message.channel.id != gamingChannel && reaction.message.channel.id != extraChannel) return;
         let message = reaction.message;
         
         // Reactions Emojis
@@ -33,6 +34,12 @@ module.exports = {
         let custom15 = client.emojis.cache.find(emoji => emoji.name == "cat9");
         let custom16 = client.emojis.cache.find(emoji => emoji.name == "cat10");
         let custom17 = client.emojis.cache.find(emoji => emoji.name == "cat11");
+        let custom18 = client.emojis.cache.find(emoji => emoji.name == "bunny3");
+        let custom19 = client.emojis.cache.find(emoji => emoji.name == "bunny4");
+        let custom20 = client.emojis.cache.find(emoji => emoji.name == "bunny5");
+        let custom21 = client.emojis.cache.find(emoji => emoji.name == "bunny6");
+        let custom22 = client.emojis.cache.find(emoji => emoji.name == "bunny7");
+        let custom23 = client.emojis.cache.find(emoji => emoji.name == "bunny8");
 
         // Age Roles
         const age1role = message.guild.roles.cache.find(role => role.name === "₊﹒13~14");
@@ -70,6 +77,15 @@ module.exports = {
         const overwatch = message.guild.roles.cache.find(role => role.name === "overwatch");
         const rogue = message.guild.roles.cache.find(role => role.name === "rogue company");
 
+        // Extra Roles
+        const movieNight = message.guild.roles.cache.find(role => role.name === "[movie night]");
+        const gameNight = message.guild.roles.cache.find(role => role.name === "[game night]");
+        const eventPing = message.guild.roles.cache.find(role => role.name === "[event ping]");
+        const randomPing = message.guild.roles.cache.find(role => role.name === "[random ping]");
+        const chatReviver = message.guild.roles.cache.find(role => role.name === "[chat reviver ping]");
+        const mudae = message.guild.roles.cache.find(role => role.name === "[mudae]");
+
+        // Message IDS
         let ageMessageID = channelIDs.find(obj => obj.name == "age").id;
         let genderMessageID = channelIDs.find(obj => obj.name == "gender").id;
         let regionMessageID = channelIDs.find(obj => obj.name == "region").id;
@@ -84,6 +100,7 @@ module.exports = {
         if(!game1ID) return;
         if(!game2ID) return;
         if(!game3ID) return;
+        if(!extraMessageID) return;
 
         // Age Reaction Roles
 
@@ -220,6 +237,32 @@ module.exports = {
                     break;                 
               }
             
+        }
+
+        // Extra Reaction Roles
+
+        if(message.id == extraMessageID){
+
+            switch(reaction.emoji.name){
+                case custom18.name:
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(movieNight);
+                    break;
+                case custom19.name:
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(gameNight);
+                    break;
+                case custom20.name:
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(eventPing);
+                    break;
+                case custom21.name:
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(randomPing);
+                    break;
+                case custom22.name:
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(chatReviver);
+                    break;
+                case custom23.name:
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(mudae);
+                    break;
+            }
         }
 
     }

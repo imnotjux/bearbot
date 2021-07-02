@@ -1,4 +1,4 @@
-const {channel, channelIDs, gamingChannel, gamingIDs, extraMessageID} = require('../config.json')
+const {channel, channelIDs, gamingChannel, extraChannel, gamingIDs, extraMessageID} = require('../config.json')
 
 module.exports = {
     once: false,
@@ -13,7 +13,7 @@ module.exports = {
             }
         }
 
-        if(reaction.message.channel.id != channel && reaction.message.channel.id != gamingChannel) return;
+        if(reaction.message.channel.id != channel && reaction.message.channel.id != gamingChannel && reaction.message.channel.id != extraChannel) return;
         let message = reaction.message;
         
         // Reactions Emojis
