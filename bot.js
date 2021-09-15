@@ -5,7 +5,7 @@ const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION']
 const path = require('path');
 
 client.commands = new Discord.Collection();
-client.count = 0
+client.count = 8010
 
 // Command Handler
 fs.readdirSync('./commands').forEach(folder => {

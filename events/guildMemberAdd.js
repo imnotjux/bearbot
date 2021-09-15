@@ -3,6 +3,9 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
     once: false,
     async run(member, client){
+
+        if(member.user.bot) return;
+
         client.count++;
         const server = member.guild;
         const category = server.channels.cache.find(cat => cat.name == "╭─ ⁺ #  verify◞♡");
